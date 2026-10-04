@@ -1,20 +1,37 @@
-# Samrina Portfolio
+# Samrina Sarkar Sammi — Personal Portfolio
 
-## Publish on GitHub Pages
-1. Create a public repository named `samrinasarkar-sammi.github.io`.
-2. Extract this ZIP and upload its contents. Keep `index.html` at the root and upload the `assets` folder.
-3. Open Settings → Pages → Deploy from a branch → main → /(root) → Save.
-4. Visit https://samrinasarkar-sammi.github.io/ once deployment completes.
+I am an MSc student in **Data Science and Network Intelligence at Télécom SudParis, France**, with a background in Computer Science and research experience in machine learning and Bengali NLP.
 
-Open index.html locally to preview before uploading.
+This portfolio brings together my projects, publications, education and professional experience.
 
-## Update an existing repository
-Replace index.html, style.css, script.js and the assets folder. Delete the old cv folder from GitHub if it was already uploaded. Removing links alone does not remove previously published files. Previous commits may still contain old CV files.
+**Portfolio:** https://samrinasarkar-sammi.github.io/
 
-## This version
-The statistics strip has been removed. There are no downloadable CVs in this package; Request my CV opens an email request. Education includes the Chinese Language Programme, and experience includes Al Fajar, research, tutoring and lab leadership. Dark and light sections alternate for contrast. Scroll animations respect reduced-motion settings. The supplied portrait is unchanged.
+## Featured Projects
 
-## Edit
-Content: index.html. Appearance: style.css. Animations and filters: script.js. Photo: assets/samrina-portrait.jpeg.
+- **Online Retail Customer Behaviour:** Python, PostgreSQL and Power BI for customer and revenue analysis.
+- **Supply Chain Network Intelligence:** Operational analytics, delivery-risk prediction, forecasting and network analysis.
+- **Sales Performance Dashboard:** A tutorial-based Tableau learning project exploring sales, profit and quantity.
+- **Bengali Product Review Sentiment:** Text preprocessing, TF-IDF and machine learning classification.
+- **COVID-19 Bangla Text Mining:** Published research with a subsequent BanglaBERT evaluation extension.
 
-Verify all project metrics and dates before sharing. Education and experience dates use the uploaded CV. Repository details use the earlier project review. Browser visual testing was unavailable during preparation.
+Explore the code and documentation on [my GitHub profile](https://github.com/samrinasarkar-sammi).
+
+## Research
+
+I co-authored two peer-reviewed publications in applied machine learning and Bengali NLP:
+
+- [Multihead Text Mining from COVID-19 Feedback](https://doi.org/10.1155/2024/3027199) — Wiley, 2024.
+- [Analysis of Bangla Transformation of Sentences Using Machine Learning](https://doi.org/10.1007/978-3-031-30396-8_4) — Springer, 2023.
+
+## Internship Availability
+
+Seeking a **20-week internship from February 2027** in data analytics, data science, or machine learning and NLP research.
+
+## Website
+
+Built with HTML, CSS and JavaScript for GitHub Pages, with responsive layouts, project filters and scroll animations that respect reduced-motion preferences.
+
+## Contact
+
+- **Email:** samrinasarkar@gmail.com
+- **LinkedIn:** [Samrina Sarkar Sammi](www.linkedin.com/in/samrina-sarkar-sammi/)
