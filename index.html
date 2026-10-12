@@ -1,173 +1,44 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Samrina Sarkar Sammi | Data Analytics, ML & NLP</title>
-<meta name="description" content="Samrina Sarkar Sammi, MSc student at Télécom SudParis. Projects in SQL, business intelligence, machine learning and Bengali NLP, plus research publications.">
-<meta name="theme-color" content="#0b1220">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap">
-<style>
-:root{--bg:#0b1220;--bg2:#111a2e;--card:#141f36;--line:#243250;--text:#e8edf7;--mute:#9aa8c4;--acc:#5eead4;--acc2:#fbbf24;--serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,-apple-system,Segoe UI,sans-serif}
-*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:inherit}img{max-width:100%}
-.wrap{max-width:1120px;margin:auto;padding:0 24px}
-header{position:fixed;inset:0 0 auto;z-index:20;background:rgba(11,18,32,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-weight:600;letter-spacing:.12em;font-size:13px;text-decoration:none}.brand span{color:var(--acc)}
-nav{display:flex;gap:24px;align-items:center}nav a{font-size:14px;color:var(--mute);text-decoration:none}nav a:hover{color:var(--text)}
-.menu{display:none;background:none;border:1px solid var(--line);color:var(--text);padding:6px 12px;border-radius:8px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;font-family:inherit;transition:.2s}
-.btn:hover{border-color:var(--acc);transform:translateY(-2px)}
-.btn.p{background:var(--acc);color:#04201b;border-color:var(--acc)}.btn.p:hover{box-shadow:0 8px 28px rgba(94,234,212,.3)}
-.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--acc);font-weight:600;text-transform:uppercase;margin-bottom:12px}
-h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1}
-.hero{padding:150px 0 90px;background:radial-gradient(800px 400px at 85% 10%,rgba(94,234,212,.12),transparent),radial-gradient(600px 300px at 0 90%,rgba(251,191,36,.07),transparent)}
-.hero .wrap{display:grid;grid-template-columns:1.3fr .8fr;gap:56px;align-items:center}
-h1{font-size:clamp(44px,7vw,84px)}h1 em{color:var(--acc);font-style:normal}
-.intro{font-size:20px;color:var(--mute);margin:22px 0 10px;max-width:540px}.ctx{font-size:14px;color:var(--mute);margin-bottom:30px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.stats{display:flex;gap:32px;margin-top:44px;flex-wrap:wrap}.stats b{display:block;font:600 28px var(--serif);color:var(--acc2)}.stats span{font-size:13px;color:var(--mute)}
-.portrait{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;background:linear-gradient(160deg,var(--card),var(--bg2));display:grid;place-items:center}
-.portrait img{width:100%;height:100%;object-fit:cover}.portrait .ini{font:600 80px var(--serif);color:var(--acc)}
-.badge{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(11,18,32,.88);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:13px;color:var(--mute)}.badge b{display:block;color:var(--acc);font-size:11px;letter-spacing:.14em}.badge strong{color:var(--text)}
-section{padding:90px 0}.alt{background:var(--bg2)}
-.head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:36px;flex-wrap:wrap}.head h2{font-size:clamp(32px,4.5vw,52px)}.head p{max-width:420px;color:var(--mute)}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}.filters button{background:none;color:var(--mute);border:1px solid var(--line);padding:8px 16px;border-radius:999px;cursor:pointer;font:500 14px var(--sans)}.filters button[aria-pressed=true]{background:var(--acc);color:#04201b;border-color:var(--acc)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px;transition:.25s}.card:hover{border-color:var(--acc);transform:translateY(-4px)}
-.top{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.14em;color:var(--mute)}.top span:last-child{color:var(--acc)}
-.card h3{font-size:24px}.card p{color:var(--mute);font-size:15px}
-.metric{font:600 34px var(--serif)!important;color:var(--acc2)!important}.metric small{font:400 13px var(--sans);color:var(--mute)}
-.stack{font-size:13px;border-top:1px solid var(--line);padding-top:12px}
-details summary{cursor:pointer;color:var(--acc);font-weight:600;font-size:14px}details .case{margin-top:12px}.case h4{font-size:13px;margin:12px 0 2px;color:var(--text)}.case p{font-size:14px}
-.repo{margin-top:auto;font-size:14px;font-weight:600;color:var(--text);text-decoration:none}.repo:hover{color:var(--acc)}
-.note{background:linear-gradient(145deg,rgba(94,234,212,.1),transparent);border-style:dashed}
-.paper{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:28px 0;border-top:1px solid var(--line)}.paper .y{font:600 32px var(--serif);color:var(--acc2)}.paper h3{font-size:22px;margin:6px 0 8px}.paper p{color:var(--mute)}.paper a{color:var(--acc);font-weight:600;text-decoration:none;display:inline-block;margin-top:8px}
-.about{display:grid;grid-template-columns:1.1fr .9fr;gap:56px}.about h2{font-size:clamp(30px,4vw,46px);margin-bottom:20px}.about p{color:var(--mute);margin-bottom:14px}
-.skills{display:grid;gap:14px;margin-top:24px}.skills div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}.skills h3{font:600 15px var(--sans);color:var(--acc);margin-bottom:4px}.skills p{margin:0;font-size:14px}
-.tl h3.t{font-size:22px;margin-bottom:18px}.tl article{border-left:2px solid var(--line);padding:0 0 26px 22px;position:relative}.tl article:before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--acc)}.tl span{font-size:12px;letter-spacing:.1em;color:var(--acc2)}.tl h3:not(.t){font:600 17px var(--sans);margin:4px 0}.tl p{font-size:14px;color:var(--mute)}
-.exp{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--line)}.exp .d{color:var(--acc2);font-weight:600;font-size:14px}.exp .l{color:var(--mute);font-size:13px}.exp h3{font-size:22px}.exp h4{font:500 15px var(--sans);color:var(--acc);margin:4px 0 10px}.exp p{color:var(--mute);font-size:15px}.exp a{color:var(--acc);font-weight:600;text-decoration:none;font-size:14px;display:inline-block;margin-top:8px}
-.award{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 26px;color:var(--mute);font-size:15px}.award span{font-size:11px;letter-spacing:.16em;color:var(--acc);display:block;margin-bottom:6px}
-.contact{text-align:center}.contact h2{font-size:clamp(34px,5vw,60px);margin-bottom:16px}.contact p{color:var(--mute)}.mail{display:block;font:600 clamp(20px,3vw,30px) var(--serif);color:var(--acc2);margin:22px 0 28px;text-decoration:none}.contact .actions{justify-content:center}
-footer{border-top:1px solid var(--line);padding:26px 0;font-size:14px;color:var(--mute)}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}footer a{margin-left:18px;text-decoration:none}footer a:hover{color:var(--acc)}
-.modal{position:fixed;inset:0;z-index:50;background:rgba(4,8,16,.78);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}
-.box{background:var(--bg2);border:1px solid var(--line);border-radius:20px;width:min(900px,100%);height:min(88vh,900px);display:flex;flex-direction:column;overflow:hidden}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap}.bar b{font-family:var(--serif);font-size:18px}.bar div{display:flex;gap:8px}.bar .btn{padding:8px 16px;font-size:14px}
-.box iframe{flex:1;border:0;background:#fff}.fallback{padding:12px 18px;font-size:13px;color:var(--mute);border-top:1px solid var(--line)}
-.reveal{opacity:0;transform:translateY(20px);transition:.7s}.reveal.in{opacity:1;transform:none}
-@media(max-width:860px){.hero .wrap,.about{grid-template-columns:1fr}.exp{grid-template-columns:1fr;gap:8px}.paper{grid-template-columns:1fr;gap:4px}.menu{display:block}nav{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);padding:20px;border-bottom:1px solid var(--line)}nav.open{display:flex}.portrait{max-width:360px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
-</style>
-</head>
-<body>
-<header><div class="wrap"><a class="brand" href="#home">SAMRINA<span> SARKAR SAMMI</span></a><button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav id="nav"><a href="#projects">Projects</a><a href="#research">Research</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a><button class="btn p" data-cv style="padding:8px 18px;font-size:14px">View CV</button></nav></div></header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Samrina Sarkar Sammi — Research & Data Science</title>
+    <meta name="description" content="M2 Data Science student with ML and Bengali NLP research, seeking a 6-month internship in France from February 2027." />
+    <meta name="theme-color" content="#241014" />
+    <link rel="canonical" href="https://samrinasarkar-sammi.github.io/" />
 
-<main>
-<section class="hero" id="home"><div class="wrap"><div>
-<p class="eyebrow">Data Analytics · Machine Learning · NLP</p>
-<h1>Samrina<br>Sarkar <em>Sammi</em></h1>
-<p class="intro">I explore data, build predictive models, and study language through machine learning.</p>
-<p class="ctx">MSc Data Science &amp; Network Intelligence · Télécom SudParis, Évry-Courcouronnes, France</p>
-<div class="actions"><a class="btn p" href="#projects">Explore my work</a><button class="btn" data-cv>View / Download CV</button></div>
-<div class="stats"><div><b>2</b><span>Peer-reviewed papers</span></div><div><b>3.91/4.00</b><span>BSc CGPA</span></div><div><b>6</b><span>Data, ML &amp; research projects</span></div></div>
-</div>
-<aside class="portrait"><span class="ini"></span><img src="portrait.jpeg" alt="Portrait of Samrina Sarkar Sammi" onerror="this.remove()">
-<div class="badge"><b>AVAILABLE FOR INTERNSHIPS</b><strong>February 2027</strong> · 6 months · Analytics / ML / Research</div></aside>
-</div></section>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Samrina Sarkar Sammi — Research & Data Science" />
+    <meta property="og:description" content="M2 Data Science student with ML and Bengali NLP research, seeking a 6-month internship in France from February 2027." />
+    <meta property="og:url" content="https://samrinasarkar-sammi.github.io/" />
+    <meta property="og:image" content="https://samrinasarkar-sammi.github.io/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Samrina Sarkar Sammi — Research & Data Science" />
+    <meta name="twitter:description" content="M2 Data Science student with ML and Bengali NLP research, seeking a 6-month internship in France from February 2027." />
+    <meta name="twitter:image" content="https://samrinasarkar-sammi.github.io/og-image.jpg" />
 
-<section id="projects"><div class="wrap">
-<div class="head reveal"><div><p class="eyebrow">01 / Selected work</p><h2>Selected work</h2></div><p>Business analytics and research projects, with code and a closer look at the methods.</p></div>
-<div class="filters" aria-label="Filter projects"><button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="analytics">Data analytics</button><button aria-pressed="false" data-f="ml">Machine learning</button><button aria-pressed="false" data-f="nlp">NLP</button></div>
-<div class="grid">
-<article class="card reveal" data-c="analytics"><div class="top"><span>01</span><span>DATA ANALYTICS</span></div><h3>Online Retail Customer Behaviour</h3><p>From transaction records to questions about revenue, retention and customer behaviour.</p><p class="metric">541K+ <small>transactions</small></p><p class="stack">Python · PostgreSQL · Power BI</p>
-<details><summary>Read case study</summary><div class="case"><h4>The question</h4><p>How do customer behaviour, product performance and cancellations affect retail revenue?</p><h4>What I built</h4><p>A Python cleaning workflow, SQL analysis using CTEs and window functions, and an interactive Power BI dashboard covering 10 business questions, including repeat purchasing, revenue by country and customer segmentation.</p><h4>Scope</h4><p>The source dataset contains 541,910 transactions. This describes the input data, not the records remaining after cleaning.</p></div></details>
-<a class="repo" href="https://github.com/samrinasarkar-sammi/online_shopping_behaviour_DataAnalytics">View repository →</a></article>
-
-<article class="card reveal" data-c="analytics ml"><div class="top"><span>02</span><span>ANALYTICS + ML</span></div><h3>Supply Chain Network Intelligence</h3><p>Investigating delivery delays, demand and profitability through operational analytics.</p><p class="metric">0.825 <small>ROC-AUC</small></p><p class="stack">Python · scikit-learn · Power BI · NetworkX</p>
-<details><summary>Read case study</summary><div class="case"><h4>The question</h4><p>Where do delivery delays occur, and how can data help assess delivery risk and future demand?</p><h4>What I built</h4><p>Data preparation, exploratory analysis, late-delivery classification, network analysis, demand forecasting and a Power BI dashboard.</p><h4>Reported results</h4><p>54.7% of orders were late. The classifier achieved 0.825 ROC-AUC; the corrected forecasting model reported 5.36% holdout MAPE.</p><h4>Interpretation</h4><p>These are evaluation results for the project dataset, not a guarantee of performance in a deployed system.</p></div></details>
-<a class="repo" href="https://github.com/samrinasarkar-sammi/supply-chain-network-intelligence">View repository →</a></article>
-
-<article class="card reveal" data-c="nlp ml"><div class="top"><span>03</span><span>NLP RESEARCH</span></div><h3>COVID-19 Bangla Text Mining</h3><p>Revisiting published student-feedback research with a transformer-based extension.</p><p class="metric">5-fold <small>cross-validation</small></p><p class="stack">Python · BanglaBERT · ML / DL</p>
-<details><summary>Read case study</summary><div class="case"><h4>The question</h4><p>Does a pretrained Bengali transformer improve on earlier approaches to classifying student feedback?</p><h4>Research and extension</h4><p>I co-authored the original published work comparing ML, deep learning and hybrid methods. The repository extends it with BanglaBERT fine-tuning and five-fold stratified cross-validation.</p><h4>The finding</h4><p>BanglaBERT did not outperform the classical ML results. The extension documents this and examines the limits of the data and evaluation.</p></div></details>
-<a class="repo" href="https://github.com/samrinasarkar-sammi/covid19-bangla-text-mining-ml-dl">View repository →</a></article>
-
-<article class="card reveal" data-c="analytics"><div class="top"><span>04</span><span>BUSINESS INTELLIGENCE</span></div><h3>Sales Performance Dashboard</h3><p>An interactive view of sales, profit and quantity across regions and customer segments.</p><p class="metric">YoY <small>performance analysis</small></p><p class="stack">Tableau · Excel · LOD expressions</p>
-<details><summary>Read case study</summary><div class="case"><h4>What I practiced</h4><p>KPI cards and interactive views using calculated fields, LOD expressions, parameters and table calculations.</p><h4>Project context</h4><p>A tutorial-based learning project rebuilt to develop Tableau skills. The repository credits the learning source; I do not claim the original dashboard concept as my own.</p></div></details>
-<a class="repo" href="https://github.com/samrinasarkar-sammi/tableau-sales-dashboard">View repository →</a></article>
-
-<article class="card reveal" data-c="nlp ml"><div class="top"><span>05</span><span>NLP + MACHINE LEARNING</span></div><h3>Bengali Product Review Sentiment</h3><p>A small, self-collected review dataset for comparing text classification approaches.</p><p class="metric">7 <small>classifiers compared</small></p><p class="stack">Python · scikit-learn · TF-IDF</p>
-<details><summary>Read case study</summary><div class="case"><h4>What I built</h4><p>Collected 300 Bengali e-commerce reviews, prepared Unicode text, generated TF-IDF unigram, bigram and trigram features, and compared seven ML classifiers.</p><h4>Evaluation</h4><p>Compared accuracy, precision, recall and F1. Perfect scores on a 30-example test set are not strong evidence of generalisation, and this project used a single split rather than cross-validation.</p></div></details>
-<a class="repo" href="https://github.com/samrinasarkar-sammi/product-ml-analysis">View repository →</a></article>
-
-<article class="card reveal" data-c="nlp ml"><div class="top"><span>06</span><span>ONGOING RESEARCH · 2026–PRESENT</span></div><h3>StereoQueerEval</h3><p>Context-aware detection of LGBTQIA+ stereotypes in text, developed at Télécom SudParis.</p><p class="metric">In progress <small>literature review &amp; dataset exploration</small></p><p class="stack">NLP · Model evaluation · Python</p>
-<details><summary>Read project note</summary><div class="case"><h4>The question</h4><p>Does adding context improve stereotype detection compared with analysing text alone?</p><h4>Current stage</h4><p>Ongoing literature review and dataset exploration. I plan to compare text-only and context-informed model evaluation.</p><h4>Status</h4><p>No results yet. This card will be updated as the work progresses.</p></div></details>
-<span class="repo">Work in progress</span></article>
-
-<aside class="card note reveal" data-c="all"><p class="eyebrow">More than a tool list</p><h3>Evidence behind the results.</h3><p>Each case study explains the question, the analysis and the limitations. The repositories contain the implementation and documentation.</p><a class="repo" href="https://github.com/samrinasarkar-sammi">Explore my GitHub →</a></aside>
-</div></div></section>
-
-<section class="alt" id="research"><div class="wrap">
-<div class="head reveal"><div><p class="eyebrow">02 / Research</p><h2>Working with language and learning</h2></div><p>Interests: low-resource and multilingual NLP, text classification, transformer evaluation, stereotype detection and applied ML.</p></div>
-<article class="paper reveal"><span class="y">2024</span><div><p class="eyebrow">Wiley · International Journal of Intelligent Systems</p><h3>Multihead Text Mining from COVID-19 Feedback Using Machine Learning, Deep Learning, and Hybrid Deep Learning Approaches</h3><p>Co-author · Bengali student-feedback analysis using classical, neural and hybrid approaches.</p><a href="https://doi.org/10.1155/2024/3027199">Read publication →</a></div></article>
-<article class="paper reveal"><span class="y">2023</span><div><p class="eyebrow">Springer</p><h3>Analysis of Bangla Transformation of Sentences Using Machine Learning</h3><p>Co-author · Machine learning applied to Bangla sentence classification.</p><a href="https://doi.org/10.1007/978-3-031-30396-8_4">Read publication →</a></div></article>
-</div></section>
-
-<section id="about"><div class="wrap about">
-<div class="reveal"><p class="eyebrow">03 / About</p><h2>A computer science foundation. A focus on useful analysis.</h2>
-<p>I am an MSc student in Data Science and Network Intelligence at Télécom SudParis in France. I completed my BSc in Computer Science and Engineering at Daffodil International University in Bangladesh with a CGPA of 3.91/4.00.</p>
-<p>My work spans customer and operational analytics, machine learning and Bengali NLP. Alongside academic projects, I have used website traffic and search data to inform SEO decisions for a furniture business.</p>
-<div class="skills"><div><h3>Programming, data &amp; BI</h3><p>Python · Java · C · SQL · PostgreSQL · MySQL · pandas · NumPy · Power BI · Tableau · Excel</p></div><div><h3>ML &amp; NLP</h3><p>scikit-learn · TensorFlow/Keras · TF-IDF · BanglaBERT · Computer vision · Forecasting · Model evaluation</p></div><div><h3>Web &amp; tools</h3><p>HTML · CSS · JavaScript · WordPress · Git/GitHub · Jupyter · Google Colab · Networking &amp; IoT fundamentals</p></div><div><h3>Languages</h3><p>Bengali (native) · English (professional) · French (A1, learning) · Mandarin (HSK 2)</p></div></div></div>
-<div class="tl reveal"><h3 class="t">Education</h3>
-<article><span>SEPT 2026 – 2027 (EXPECTED)</span><h3>MSc Data Science &amp; Network Intelligence</h3><p>Télécom SudParis · Évry-Courcouronnes, France<br>Deep Learning · Predictive Analytics · Large-Scale Data Processing · Network Automation</p></article>
-<article><span>SEPT 2025 – JULY 2026</span><h3>Chinese Language Programme</h3><p>Suihua University · Suihua, China<br>Mandarin HSK 2</p></article>
-<article><span>JAN 2019 – MAR 2023</span><h3>BSc Computer Science &amp; Engineering</h3><p>Daffodil International University · Dhaka, Bangladesh<br>CGPA 3.91/4.00 · Thesis: COVID-19 feedback text mining using ML, deep learning and hybrid approaches · Brilliant Academic Result Scholarship</p></article></div>
-</div></section>
-
-<section class="alt" id="experience"><div class="wrap">
-<div class="head reveal"><div><p class="eyebrow">04 / Experience</p><h2>Research, analysis and communication</h2></div><p>Academic research, client work and teaching have shaped how I investigate problems and explain findings.</p></div>
-<article class="exp reveal"><div><span class="d">Mar 2026 – July 2026</span><p class="l">Dubai business · Freelance</p></div><div><h3>Web Developer &amp; SEO Analyst</h3><h4>Al Fajar Furniture</h4><p>Built and maintained a WordPress website, using Google Analytics, Search Console and SEMrush to guide SEO and content decisions. Reported month-over-month growth of 222% in engaged sessions and 142% in users.</p><a href="https://alfajarfurniture.com/">Visit client website →</a></div></article>
-<article class="exp reveal"><div><span class="d">Oct 2022 – Jan 2025</span><p class="l">Dhaka, Bangladesh</p></div><div><h3>Research Assistant</h3><h4>Daffodil International University · NLP &amp; ML Research Lab</h4><p>Contributed to data analysis, modelling and academic research across machine learning, deep learning, computer vision and NLP. Co-authored two peer-reviewed publications.</p></div></article>
-<article class="exp reveal"><div><span class="d">2018 – 2025</span><p class="l">Dhaka, Bangladesh · Freelance</p></div><div><h3>Private English Tutor (part-time)</h3><h4>Secondary and university students</h4><p>Provided personalised English lessons and academic support, adapting explanations and learning activities to students’ needs.</p></div></article>
-<article class="exp reveal"><div><span class="d">2022</span><p class="l">Academic leadership</p></div><div><h3>Executive Member</h3><h4>DIU NLP &amp; ML Research Lab</h4><p>Led the research and publications wing and organised workshops and webinars.</p></div></article>
-<div class="award reveal"><span>ACADEMIC RECOGNITION</span>Brilliant Academic Result Scholarship · Up to 50% tuition waiver across multiple semesters<br>Best Volunteer Award · DIU Computer and Programming Club, 2021</div>
-</div></section>
-
-<section class="contact" id="contact"><div class="wrap reveal"><p class="eyebrow">05 / Let’s connect</p><h2>Looking for a curious data or research intern?</h2><p>Seeking a 6-month internship in France from February 2027, in data analytics, machine learning or NLP research.</p>
-<a class="mail" href="mailto:samrinasarkar@gmail.com">samrinasarkar@gmail.com</a>
-<div class="actions"><button class="btn p" data-cv>View / Download CV</button><a class="btn" href="https://www.linkedin.com/in/samrina-sarkar-sammi-a8b716424/">Connect on LinkedIn</a></div></div></section>
-</main>
-
-<footer><div class="wrap"><span>© 2026 Samrina Sarkar Sammi</span><div><a href="https://github.com/samrinasarkar-sammi">GitHub</a><a href="https://www.linkedin.com/in/samrina-sarkar-sammi-a8b716424/">LinkedIn</a><a href="#home">Back to top</a></div></div></footer>
-
-<div class="modal" id="cv" role="dialog" aria-modal="true" aria-label="Curriculum vitae"><div class="box">
-<div class="bar"><b>Curriculum Vitae</b><div><a class="btn p" id="dl" href="Samrina_Sarkar_Sammi_CV.pdf" download>Download PDF</a><a class="btn" href="Samrina_Sarkar_Sammi_CV.pdf" target="_blank" rel="noopener">Open in new tab</a><button class="btn" id="x">Close</button></div></div>
-<iframe id="frame" title="CV preview"></iframe>
-<p class="fallback">If the preview is blank (some mobile browsers), use “Download PDF” or “Open in new tab”.</p></div></div>
-
-<script>
-const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
-// Mobile menu
-const mb=$('.menu'),nav=$('#nav');
-mb.onclick=()=>{const o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
-$$('nav a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
-// Project filters
-$$('.filters button').forEach(b=>b.onclick=()=>{
-  $$('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  const f=b.dataset.f;
-  $$('.card').forEach(c=>c.style.display=(f==='all'||c.dataset.c.split(' ').includes(f)||c.dataset.c==='all')?'':'none');
-});
-// CV modal: preview in-page + download button (no email)
-const m=$('#cv'),fr=$('#frame');
-const open=()=>{fr.src='Samrina_Sarkar_Sammi_CV.pdf';m.classList.add('open');document.body.style.overflow='hidden'};
-const close=()=>{m.classList.remove('open');document.body.style.overflow='';fr.src='about:blank'};
-$$('[data-cv]').forEach(b=>b.onclick=open);
-$('#x').onclick=close;m.onclick=e=>{if(e.target===m)close()};
-document.onkeydown=e=>{if(e.key==='Escape')close()};
-// Scroll reveal
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
-$$('.reveal').forEach(el=>io.observe(el));
-</script>
-</body>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link href="https://fonts.bunny.net/css?family=fraunces:500,600,700,800|satoshi:400,500,700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Samrina Sarkar Sammi",
+        "jobTitle": "Research & Data Science Intern (M2 Data Science)",
+        "url": "https://samrinasarkar-sammi.github.io/",
+                "address": { "@type": "PostalAddress", "addressLocality": "Évry-Courcouronnes", "addressCountry": "FR" }
+      }
+    </script>
+    <script type="module" crossorigin src="./assets/index-Dvcc6f2m.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-x0QnsSVX.css">
+    <link rel="stylesheet" href="./custom.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>

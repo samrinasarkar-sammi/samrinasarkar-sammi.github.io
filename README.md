@@ -1,37 +1,51 @@
-# Samrina Sarkar Sammi — Personal Portfolio
+# Samrina Sarkar Sammi Portfolio
 
-I am an MSc student in **Data Science and Network Intelligence at Télécom SudParis, France**, with a background in Computer Science and research experience in machine learning and Bengali NLP.
+GitHub Pages version of the portfolio published at https://portfolio-website-65d.app.orvisai.com/.
 
-This portfolio brings together my projects, publications, education and professional experience.
+## Publish on GitHub
 
-**Portfolio:** https://samrinasarkar-sammi.github.io/
+1. Open your repository `samrinasarkar-sammi.github.io`.
+2. Back up its existing contents if you want to keep the previous portfolio.
+3. Extract the downloaded ZIP on your computer.
+4. Upload the **contents** of the extracted folder to the repository root. `index.html` must be at the top level, alongside `assets` and `img`, not inside another folder.
+5. Commit the files to `main`.
+6. Open **Settings → Pages**.
+7. Select **Deploy from a branch**, branch **main**, folder **/(root)**, and save.
+8. Open the URL displayed by GitHub Pages once deployment completes.
 
-## Featured Projects
+No npm installation or build step is needed. The same files can be hosted in a project repository because asset paths are relative.
 
-- **Online Retail Customer Behaviour:** Python, PostgreSQL and Power BI for customer and revenue analysis.
-- **Supply Chain Network Intelligence:** Operational analytics, delivery-risk prediction, forecasting and network analysis.
-- **Sales Performance Dashboard:** A tutorial-based Tableau learning project exploring sales, profit and quantity.
-- **Bengali Product Review Sentiment:** Text preprocessing, TF-IDF and machine learning classification.
-- **COVID-19 Bangla Text Mining:** Published research with a subsequent BanglaBERT evaluation extension.
+## Files
 
-Explore the code and documentation on [my GitHub profile](https://github.com/samrinasarkar-sammi).
+- `index.html`: page metadata, font loading, and application entry point.
+- `assets/index-Dvcc6f2m.js`: compiled React application and animation libraries.
+- `assets/index-x0QnsSVX.css`: original published stylesheet.
+- `img/hero-cutout.png`: original hero portrait.
+- `img/contact-avatar.png`: original contact portrait.
+- `Samrina_Sarkar_Sammi_CV.pdf`: CV downloaded from the original portfolio.
+- `custom.css`: optional styling overrides, loaded after the original stylesheet.
+- `.nojekyll`: prevents Jekyll processing.
 
-## Research
+## Editing
 
-I co-authored two peer-reviewed publications in applied machine learning and Bengali NLP:
+This is the published browser build, not the original editable React project. It preserves the public portfolio closely but the JavaScript is minified. For normal long-term development, export the source project from OrvisAI (if export is available) and use that as your source repository. You can make styling adjustments in `custom.css`, replace image files using the same names, and replace the PDF using the same name without rebuilding.
 
-- [Multihead Text Mining from COVID-19 Feedback](https://doi.org/10.1155/2024/3027199) — Wiley, 2024.
-- [Analysis of Bangla Transformation of Sentences Using Machine Learning](https://doi.org/10.1007/978-3-031-30396-8_4) — Springer, 2023.
+The original site uses external fonts from fonts.bunny.net. An internet connection is needed for those fonts; the browser uses fallback fonts if unavailable.
 
-## Internship Availability
+The original portfolio content has been retained, including the six-month internship wording and public phone number. Its CV is the original website download, not a newly substituted CV.
 
-Seeking a **20-week internship from February 2027** in data analytics, data science, or machine learning and NLP research.
+## Local preview
 
-## Website
+Serve this folder with a static HTTP server; do not open `index.html` using a `file://` URL because it loads an ES module.
 
-Built with HTML, CSS and JavaScript for GitHub Pages, with responsive layouts, project filters and scroll animations that respect reduced-motion preferences.
+```sh
+python3 -m http.server 8000
+```
 
-## Contact
+Open http://localhost:8000.
 
-- **Email:** samrinasarkar@gmail.com
-- **LinkedIn:** [Samrina Sarkar Sammi](www.linkedin.com/in/samrina-sarkar-sammi/)
+## Checks performed
+
+All referenced local images, application assets, favicon and CV were downloaded and checked. Root-relative application paths were changed to relative paths for GitHub Pages. The original public site was visually inspected. The GitHub-hosted copy must be checked after deployment; it was not deployed by this task.
+
+Third-party library license notices in the original JavaScript bundle are retained.
