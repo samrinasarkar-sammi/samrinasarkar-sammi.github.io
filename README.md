@@ -1,6 +1,5 @@
 # Samrina Sarkar Sammi Portfolio
 
-GitHub Pages version of the portfolio published at https://portfolio-website-65d.app.orvisai.com/.
 
 ## Publish on GitHub
 
