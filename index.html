@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <title>Samrina Sarkar Sammi — Research & Data Science</title>
-    <meta name="description" content="M2 Data Science student with ML and Bengali NLP research, seeking a 6-month end-of-studies internship (stage de fin d’études) from January 2027." />
+    <meta name="description" content="MSc student at Télécom SudParis with ML, NLP and analytics experience. Open to data science, analytics and research/thesis placements from January 2027." />
     <meta name="theme-color" content="#241014" />
     <link rel="canonical" href="https://samrinasarkar-sammi.github.io/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Samrina Sarkar Sammi — Research & Data Science" />
-    <meta property="og:description" content="M2 Data Science student with ML and Bengali NLP research, seeking a 6-month end-of-studies internship (stage de fin d’études) from January 2027." />
+    <meta property="og:description" content="MSc student at Télécom SudParis with ML, NLP and analytics experience. Open to data science, analytics and research/thesis placements from January 2027." />
     <meta property="og:url" content="https://samrinasarkar-sammi.github.io/" />
     <meta property="og:image" content="https://samrinasarkar-sammi.github.io/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Samrina Sarkar Sammi — Research & Data Science" />
-    <meta name="twitter:description" content="M2 Data Science student with ML and Bengali NLP research, seeking a 6-month internship in France from February 2027." />
+    <meta name="twitter:description" content="MSc student at Télécom SudParis with ML, NLP and analytics experience. Open to data science, analytics and research/thesis placements from January 2027." />
     <meta name="twitter:image" content="https://samrinasarkar-sammi.github.io/og-image.jpg" />
 
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
@@ -29,7 +29,7 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Samrina Sarkar Sammi",
-        "jobTitle": "Research & Data Science Intern (M2 Data Science)",
+        "jobTitle": "MSc Student in Data Science and Network Intelligence",
         "url": "https://samrinasarkar-sammi.github.io/",
                 "address": { "@type": "PostalAddress", "addressLocality": "Évry-Courcouronnes", "addressCountry": "FR" }
       }
@@ -59,10 +59,28 @@
       function updateHeading() {
         const heading = root.querySelector('h1');
         if (!heading) return false;
-        heading.textContent = 'SAMRINA\nSARKAR SAMMI';
+        if (heading.textContent !== 'SAMRINA\nSARKAR SAMMI') heading.textContent = 'SAMRINA\nSARKAR SAMMI';
         return true;
       }
 
+
+      function updateIntroduction() {
+        const replacements = new Map([["RESEARCH & DATA SCIENCE", "DATA SCIENCE & ANALYTICS"], ["INTERN · 6 MONTHS · FROM FEBRUARY 2027", "INTERNSHIP / RESEARCH & MASTER’S THESIS · FROM JANUARY 2027"], ["OPEN TO", "OPEN TO"], ["FEB 2027", "JAN 2027"], ["FEB", "JAN"], ["M2 Data Science student at Télécom SudParis with machine learning and Bengali NLP research experience, two peer-reviewed publications, and projects in predictive analytics and business intelligence.", "I’m an MSc Data Science and Network Intelligence student at Télécom SudParis, with two peer-reviewed publications and hands-on projects in machine learning, NLP and business intelligence. I use Python, SQL and data visualisation to explore questions, evaluate models and communicate findings. I’m looking to contribute to a team through a data science or analytics internship, or a research placement leading to a master’s thesis."], ["Seeking a 6-month internship", "Open to internship or research/thesis opportunities"], ["In France from February 2027", "Available in France from January 2027"], ["FEBRUARY 2027", "JANUARY 2027"], ["FEB 2027", "JAN 2027"]]);
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          const replacement = replacements.get(node.nodeValue.trim());
+          if (replacement !== undefined && node.nodeValue !== replacement) {
+            node.nodeValue = replacement;
+          }
+        }
+        const hero = root.querySelector('h1')?.closest('section');
+        if (hero) {
+          const paragraph = Array.from(hero.querySelectorAll('p')).find(el => el.textContent.startsWith('I’m an MSc Data Science'));
+          if (paragraph) paragraph.style.maxWidth = '560px';
+        }
+        return !!root.querySelector('#contact');
+      }
       function splitSections() {
         const heading = Array.from(root.querySelectorAll('h2'))
           .find(el => el.textContent.trim() === 'Education & Experience');
@@ -123,10 +141,16 @@
         return true;
       }
       const observer = new MutationObserver(() => {
-        if (updateHeading() && splitSections()) observer.disconnect();
+        const ready = updateHeading();
+        const introReady = updateIntroduction();
+        const sectionsReady = !!root.querySelector("#education") || splitSections();
+        if (ready && introReady && sectionsReady) observer.disconnect();
       });
       observer.observe(root, { childList: true, subtree: true });
-      if (updateHeading() && splitSections()) observer.disconnect();
+      const ready = updateHeading();
+        const introReady = updateIntroduction();
+        const sectionsReady = !!root.querySelector("#education") || splitSections();
+        if (ready && introReady && sectionsReady) observer.disconnect();
     })();
   </script>
   </body>
