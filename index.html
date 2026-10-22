@@ -65,6 +65,16 @@ section[data-project-controls] .case p{margin:0 0 10px}
 section[data-project-controls] .project-repo{display:inline-block;align-self:flex-start;margin-top:16px;font-size:13px;font-weight:700;color:var(--color-accent);text-decoration:underline;text-underline-offset:4px}
 section[data-project-controls] button:focus-visible,section[data-project-controls] summary:focus-visible,section[data-project-controls] .project-repo:focus-visible{outline:2px solid var(--color-accent);outline-offset:4px}
 </style>
+<style id="sticky-navigation-styles">
+#samrina-sticky-navigation{position:fixed;top:0;left:0;right:0;z-index:1000;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:24px;margin:0;max-width:none;width:100%;padding:22px max(24px,calc((100vw - 1056px)/2));background:#f5f1e5;color:#352425;border-bottom:1px solid #ded8ca;font-family:Arial,sans-serif;box-shadow:0 2px 12px #35242508}
+#samrina-sticky-navigation .hero-logo{font-family:Georgia,serif;font-size:26px;font-weight:bold;letter-spacing:-2px;text-decoration:none;color:#352425;flex-shrink:0}
+#samrina-sticky-navigation .hero-links{display:flex;align-items:center;gap:26px;font-size:12px}
+#samrina-sticky-navigation .hero-links a{color:#352425;text-decoration:none;white-space:nowrap}
+#samrina-sticky-navigation .hero-talk{border:1px solid #ded8ca;border-radius:30px;padding:10px 18px}
+#samrina-sticky-navigation a:focus-visible{outline:2px solid #a2794c;outline-offset:5px}
+html{scroll-padding-top:calc(var(--samrina-nav-height,90px) + 16px)}
+@media(max-width:560px){#samrina-sticky-navigation{padding:16px;gap:12px}#samrina-sticky-navigation .hero-links{gap:10px;font-size:10px;flex-wrap:wrap;justify-content:flex-end}#samrina-sticky-navigation .hero-talk{padding:7px 10px}}
+</style>
 </head>
   <body>
     <div id="root"></div>
@@ -268,6 +278,37 @@ section[data-project-controls] button:focus-visible,section[data-project-control
   if (!enhance()) {
     const observer = new MutationObserver(() => { if (enhance()) observer.disconnect(); });
     observer.observe(document.getElementById('root'), {childList:true, subtree:true});
+  }
+})();
+</script>
+<script id="sticky-navigation-script">
+(() => {
+  function enableStickyNavigation() {
+    const hero = document.getElementById('samrina-portfolio-hero');
+    const nav = hero?.querySelector('.hero-nav');
+    if (!nav) return false;
+    // Move the same navigation to body so the hero cannot limit its scroll range.
+    nav.id = 'samrina-sticky-navigation';
+    document.body.append(nav);
+    function measure() {
+      const height = Math.ceil(nav.getBoundingClientRect().height);
+      hero.style.paddingTop = `${height}px`;
+      document.documentElement.style.setProperty('--samrina-nav-height', `${height}px`);
+    }
+    measure();
+    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(nav);
+    else window.addEventListener('resize', measure);
+    // Preserve the existing Research link even when its section uses a different ID.
+    nav.querySelector('a[href="#research"]')?.addEventListener('click', event => {
+      if (document.getElementById('research')) return;
+      const heading = Array.from(document.querySelectorAll('#root h2')).find(el => /publication/i.test(el.textContent));
+      if (heading) { event.preventDefault(); heading.closest('section')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}); }
+    });
+    return true;
+  }
+  if (!enableStickyNavigation()) {
+    const observer = new MutationObserver(() => { if (enableStickyNavigation()) observer.disconnect(); });
+    observer.observe(document.getElementById('root'), {childList:true,subtree:true});
   }
 })();
 </script>
