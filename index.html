@@ -50,7 +50,22 @@
       padding-bottom: 12px;
     }
   </style>
-  </head>
+  <style id="selected-project-controls">
+/* Scoped exclusively to the existing selected-projects section. */
+section[data-project-controls] .project-filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}
+section[data-project-controls] .project-filters button{font:inherit;font-size:13px;padding:10px 18px;border:1px solid var(--color-accent);border-radius:999px;color:var(--color-ink);background:transparent;cursor:pointer}
+section[data-project-controls] .project-filters button[aria-pressed="true"]{background:var(--color-accent);color:var(--color-canvas)}
+section[data-project-controls] #work>[hidden]{display:none!important}
+section[data-project-controls] .project-filter-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+section[data-project-controls] details{margin-top:20px;border-top:1px solid var(--color-accent);border-bottom:1px solid var(--color-accent)}
+section[data-project-controls] summary{padding:14px 0;cursor:pointer;font-size:13px;font-weight:700;color:var(--color-accent);display:list-item}
+section[data-project-controls] .case{padding-bottom:16px;font-size:13px;line-height:1.7;color:var(--color-ink-dim)}
+section[data-project-controls] .case h4{margin:12px 0 4px;font-weight:700;color:var(--color-ink)}
+section[data-project-controls] .case p{margin:0 0 10px}
+section[data-project-controls] .project-repo{display:inline-block;align-self:flex-start;margin-top:16px;font-size:13px;font-weight:700;color:var(--color-accent);text-decoration:underline;text-underline-offset:4px}
+section[data-project-controls] button:focus-visible,section[data-project-controls] summary:focus-visible,section[data-project-controls] .project-repo:focus-visible{outline:2px solid var(--color-accent);outline-offset:4px}
+</style>
+</head>
   <body>
     <div id="root"></div>
     <script>
@@ -182,5 +197,73 @@
         if (ready && introReady && sectionsReady && portraitReady && excelReady) observer.disconnect();
     })();
   </script>
-  </body>
+  <script id="selected-project-controls-script">
+(() => {
+  const records = {"Online Retail Customer Behaviour": {"category": "analytics", "case": "<details><summary>Read case study</summary><div class=\"case\"><h4>The question</h4><p>How do customer behaviour, product performance and cancellations affect retail revenue?</p><h4>What I built</h4><p>A data cleaning workflow in Python, SQL analysis using CTEs and window functions, and an interactive Power BI dashboard. The analysis covers 10 business questions, including repeat purchasing, revenue by country and customer segmentation.</p><h4>Scope</h4><p>The source dataset contains 541,910 transactions. Its scale describes the input data, rather than the number of records remaining after cleaning.</p></div></details>", "repo": "https://github.com/samrinasarkar-sammi/online_shopping_behaviour_DataAnalytics"}, "Supply Chain Network Intelligence": {"category": "analytics ml", "case": "<details><summary>Read case study</summary><div class=\"case\"><h4>The question</h4><p>Where do delivery delays occur, and how can data help assess delivery risk and future demand?</p><h4>What I built</h4><p>Data preparation and exploratory analysis, late-delivery classification, network analysis, demand forecasting and a Power BI dashboard.</p><h4>Reported results</h4><p>54.7% of orders were late. The classification model achieved 0.825 ROC-AUC; the corrected forecasting model reported 5.36% holdout MAPE.</p><h4>Interpretation</h4><p>These are evaluation results for the project dataset, not a guarantee of performance in a deployed operational system.</p></div></details>", "repo": "https://github.com/samrinasarkar-sammi/supply-chain-network-intelligence"}, "COVID-19 Bangla Text Mining": {"category": "nlp ml", "case": "<details><summary>Read case study</summary><div class=\"case\"><h4>The question</h4><p>Does a pretrained Bengali transformer improve on earlier approaches to classifying student feedback?</p><h4>Research and extension</h4><p>I co-authored the original published work comparing machine learning, deep learning and hybrid methods. The repository extends that work with BanglaBERT fine-tuning and five-fold stratified cross-validation.</p><h4>The finding</h4><p>BanglaBERT did not outperform the classical ML results. The extension documents this outcome and examines the limitations of the available data and evaluation.</p></div></details>", "repo": "https://github.com/samrinasarkar-sammi/covid19-bangla-text-mining-ml-dl"}, "Sales Performance Dashboard": {"category": "analytics", "case": "<details><summary>Read case study</summary><div class=\"case\"><h4>What I practiced</h4><p>Building KPI cards and interactive views using calculated fields, LOD expressions, parameters and table calculations.</p><h4>Project context</h4><p>A tutorial-based learning project that I rebuilt to develop Tableau skills. The repository explains the learning source; I do not claim the original dashboard concept as my own.</p></div></details>", "repo": "https://github.com/samrinasarkar-sammi/tableau-sales-dashboard"}, "Bengali Product-Review Sentiment": {"category": "nlp ml", "case": "<details><summary>Read case study</summary><div class=\"case\"><h4>What I built</h4><p>Collected 300 Bengali e-commerce reviews, prepared Unicode text, generated TF-IDF unigram, bigram and trigram features, and compared seven ML classifiers.</p><h4>Evaluation</h4><p>Compared accuracy, precision, recall and F1. Perfect scores on a test set of only 30 examples should not be interpreted as strong evidence of generalization. This project used a single split rather than cross-validation.</p></div></details>", "repo": "https://github.com/samrinasarkar-sammi/product-ml-analysis"}, "StereoQueerEval": {"category": "nlp ml", "case": "<details><summary>Read case study</summary><div class=\"case\"><h4>The question</h4><p>Does contextual information improve LGBTQIA+ stereotype detection compared with text-only approaches?</p><h4>Work in progress</h4><p>Literature review and dataset exploration, with a comparative evaluation planned.</p></div></details>"}};
+  function enhance() {
+    const grid = document.getElementById('work');
+    if (!grid || grid.dataset.projectControls === 'ready') return !!grid;
+    const section = grid.closest('section');
+    if (!section) return false;
+    section.dataset.projectControls = 'enabled';
+    const cards = Array.from(grid.querySelectorAll('article'));
+    if (!cards.length) return false;
+    const controls = document.createElement('div');
+    controls.className = 'project-filters';
+    controls.setAttribute('role', 'group');
+    controls.setAttribute('aria-label', 'Filter projects');
+    const status = document.createElement('p');
+    status.className = 'project-filter-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    const items = cards.map(card => {
+      const record = records[card.querySelector('h3')?.textContent.trim()];
+      const wrapper = card.parentElement;
+      if (record) {
+        card.insertAdjacentHTML('beforeend', record.case);
+        if (record.repo) {
+          const link = document.createElement('a');
+          link.className = 'project-repo';
+          link.href = record.repo;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = 'View repository';
+          card.append(link);
+        }
+      }
+      return {wrapper, category: record?.category.split(' ') || []};
+    });
+    const buttons = [];
+    function select(filter) {
+      let visible = 0;
+      for (const item of items) {
+        item.wrapper.hidden = filter !== 'all' && !item.category.includes(filter);
+        if (!item.wrapper.hidden) visible++;
+      }
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === filter)));
+      status.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'} shown`;
+      window.dispatchEvent(new Event('resize'));
+    }
+    for (const [value, label] of [['all','All projects'],['analytics','Data analytics'],['ml','Machine learning'],['nlp','NLP']]) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.filter = value;
+      button.textContent = label;
+      button.setAttribute('aria-controls','work');
+      button.addEventListener('click', () => select(value));
+      buttons.push(button);
+      controls.append(button);
+    }
+    grid.before(controls, status);
+    grid.dataset.projectControls = 'ready';
+    select('all');
+    return true;
+  }
+  if (!enhance()) {
+    const observer = new MutationObserver(() => { if (enhance()) observer.disconnect(); });
+    observer.observe(document.getElementById('root'), {childList:true, subtree:true});
+  }
+})();
+</script>
+</body>
 </html>
